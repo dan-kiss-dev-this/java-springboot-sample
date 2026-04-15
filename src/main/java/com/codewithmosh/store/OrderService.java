@@ -1,7 +1,11 @@
 package com.codewithmosh.store;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class OrderService {
     private PaymentService paymentService;
+
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
     }
@@ -11,5 +15,9 @@ public class OrderService {
         // Look how we removed the tighly coupled payment service
 //        var paymentService = new StripePaymentService();
 //        paymentService.processPayment(10);
+    }
+
+    public void setPaymentService(PaymentService paymentService) {
+        this.paymentService = paymentService;
     }
 }
